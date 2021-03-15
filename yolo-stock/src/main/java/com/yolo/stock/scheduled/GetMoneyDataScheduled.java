@@ -111,7 +111,6 @@ public class GetMoneyDataScheduled {
         byte[] bytes = FileCopyUtils.copyToByteArray(response.getBody());
         String res = new String(bytes, "GBK");
         String responseString = res.substring(res.indexOf("\"") + 1, res.lastIndexOf("\""));
-//        System.out.println(responseString);
         if (responseString.length() > 100) {
             try {
                 List<String> stringList = Arrays.asList(responseString.split("~"));

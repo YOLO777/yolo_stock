@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * ${DESCRIPTION}
  *
- * @author wanghaobin
+ * @author
  * @create 2017-05-25 12:44
  */
 //@EnableDiscoveryClient

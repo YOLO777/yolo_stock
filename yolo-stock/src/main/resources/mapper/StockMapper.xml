@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yolo.stock.mapper.StockMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yolo.stock.entity.Stock" id="stockMap">
+        <result property="id" column="id"/>
+        <result property="stockType" column="stock_type"/>
+        <result property="stockCode" column="stock_code"/>
+        <result property="stockName" column="stock_name"/>
+        <result property="stockOldName" column="stock_old_name"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark_"/>
+        <result property="enable" column="enable_"/>
+        <result property="nowPrice" column="now_price"/>
+        <result property="peRatio" column="pe_ratio"/>
+        <result property="pbRatio" column="pb_ratio"/>
+        <result property="peRatioMove" column="pe_ratio_move"/>
+        <result property="peRatioStatic" column="pe_ratio_static"/>
+        <result property="circulationMarketValue" column="circulation_market_value"/>
+        <result property="circulationMarketValueTotal" column="circulation_market_value_total"/>
+        <result property="indId" column="ind_id"/>
+    </resultMap>
+    <update id="updateByStockCode">
+        UPDATE stock SET  now_price = #{stock.nowPrice},
+                pe_ratio = #{stock.peRatio},
+                pb_ratio = #{stock.pbRatio},
+                pe_ratio_move = #{stock.peRatioMove},
+                pe_ratio_static = #{stock.peRatioStatic},
+                circulation_market_value = #{stock.circulationMarketValue},
+                circulation_market_value_total = #{stock.circulationMarketValueTotal} WHERE stock_code = #{stock.stockCode}
+    </update>
+    <update id="updateIndByStockCode">
+        UPDATE stock SET ind_id = (SELECT id FROM industry where ind_code = #{indCode}) WHERE stock_code =#{stockCode}
+    </update>
+
+</mapper>

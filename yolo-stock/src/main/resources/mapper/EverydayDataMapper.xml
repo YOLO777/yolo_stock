@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yolo.stock.mapper.EverydayDataMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yolo.stock.entity.EverydayData" id="everydayDataMap">
+        <result property="id" column="id"/>
+        <result property="time" column="time_"/>
+        <result property="stockExchange" column="stock_exchange"/>
+        <result property="stockName" column="stock_name"/>
+        <result property="stockCode" column="stock_code"/>
+        <result property="nowPrice" column="now_price"/>
+        <result property="yesterdayPrice" column="yesterday_price"/>
+        <result property="todayOpenPrice" column="today_open_price"/>
+        <result property="volumeCount" column="volume_count"/>
+        <result property="outOrderCount" column="out_order_count"/>
+        <result property="innerOrderCount" column="inner_order_count"/>
+        <result property="buyOnePrice" column="buy_one_price"/>
+        <result property="buyOneCount" column="buy_one_count"/>
+        <result property="buyTwoPrice" column="buy_two_price"/>
+        <result property="buyTwoCount" column="buy_two_count"/>
+        <result property="buyThreePrice" column="buy_three_price"/>
+        <result property="buyThreeCount" column="buy_three_count"/>
+        <result property="buyFourPrice" column="buy_four_price"/>
+        <result property="buyFourCount" column="buy_four_count"/>
+        <result property="buyFivePrice" column="buy_five_price"/>
+        <result property="buyFiveCount" column="buy_five_count"/>
+        <result property="saleOnePrice" column="sale_one_price"/>
+        <result property="saleOneCount" column="sale_one_count"/>
+        <result property="saleTwoPrice" column="sale_two_price"/>
+        <result property="saleTwoCount" column="sale_two_count"/>
+        <result property="saleThreePrice" column="sale_three_price"/>
+        <result property="saleThreeCount" column="sale_three_count"/>
+        <result property="saleFourPrice" column="sale_four_price"/>
+        <result property="saleFourCount" column="sale_four_count"/>
+        <result property="saleFivePrice" column="sale_five_price"/>
+        <result property="saleFiveCount" column="sale_five_count"/>
+        <result property="lastestDeal" column="lastest_deal"/>
+        <result property="upOrDown" column="up_or_down"/>
+        <result property="quoteChange" column="quote_change"/>
+        <result property="highestPrice" column="highest_price"/>
+        <result property="lowestPrice" column="lowest_price"/>
+        <result property="priceInfo" column="price_info"/>
+        <result property="turnoverRate" column="turnover_rate"/>
+        <result property="peRatio" column="pe_ratio"/>
+        <result property="amplitude" column="amplitude_"/>
+        <result property="circulationMarketValue" column="circulation_market_value"/>
+        <result property="circulationMarketValueTotal" column="circulation_market_value_total"/>
+        <result property="pbRatio" column="pb_ratio"/>
+        <result property="highLimitPrice" column="high_limit_price"/>
+        <result property="lowLimitPrice" column="low_limit_price"/>
+        <result property="quantityRatio" column="quantity_ratio"/>
+        <result property="averagePrice" column="average_price"/>
+        <result property="peRatioMove" column="pe_ratio_move"/>
+        <result property="peRatioStatic" column="pe_ratio_static"/>
+        <result property="volume" column="volume_"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark_"/>
+        <result property="enable" column="enable_"/>
+    </resultMap>
+
+</mapper>

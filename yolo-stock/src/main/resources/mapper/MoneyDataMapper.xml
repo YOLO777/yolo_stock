@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yolo.stock.mapper.MoneyDataMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yolo.stock.entity.MoneyData" id="moneyDataMap">
+        <result property="id" column="id"/>
+        <result property="stockCode" column="stock_code"/>
+        <result property="stockName" column="stock_name"/>
+        <result property="mainIn" column="main_in"/>
+        <result property="mainOut" column="main_out"/>
+        <result property="mainNetIn" column="main_net_in"/>
+        <result property="mainMoneyNetTotal" column="main_money_net_total"/>
+        <result property="retailIn" column="retail_in"/>
+        <result property="retailOut" column="retail_out"/>
+        <result property="retailNetIn" column="retail_net_in"/>
+        <result property="retailMoneyNetTotal" column="retail_money_net_total"/>
+        <result property="moneyTotal" column="money_total"/>
+        <result property="time" column="time_"/>
+        <result property="oneDayAgo" column="one_day_ago"/>
+        <result property="twoDayAgo" column="two_day_ago"/>
+        <result property="threeDayAgo" column="three_day_ago"/>
+        <result property="fourDayAgo" column="four_day_ago"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark_"/>
+        <result property="enable" column="enable_"/>
+    </resultMap>
+    <select id="getTop20MoneyIn" resultMap="moneyDataMap">
+      select * from money_data where time_ =#{time} ORDER BY main_net_in desc limit 20
+    </select>
+    <select id="getTop20MoneyOut" resultMap="moneyDataMap">
+      select * from money_data where time_ =#{time} ORDER BY main_net_in asc limit 20
+    </select>
+
+</mapper>

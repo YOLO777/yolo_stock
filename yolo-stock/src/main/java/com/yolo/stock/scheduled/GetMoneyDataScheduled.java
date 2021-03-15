@@ -82,6 +82,7 @@ public class GetMoneyDataScheduled {
                 }
 
             }
+
             log.info(format.format(new Date()) + "============定时执行拉取成功");
             Mail mail = new Mail();
             mail.setSendMail(sendMail);

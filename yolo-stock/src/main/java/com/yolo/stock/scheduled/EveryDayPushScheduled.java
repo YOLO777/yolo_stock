@@ -110,21 +110,23 @@ public class EveryDayPushScheduled {
     @Scheduled(cron = "0 50 16 * * ?")
     public void generator() throws IOException {
         try {
-            Example example = new Example(EverydayData.class);
-            Example.Criteria criteria = example.createCriteria();
-            criteria.andLike("time", "%" + DateUtil.format(new Date(), "yyyyMMdd") + "%");
-            List<EverydayData> list = everydayDataMapper.selectByExample(example);
-            StockExcel stockExcel = new StockExcel();
-            stockExcel.generatorStockData(list, stockDataDirPath);
-            Mail mail = new Mail();
-            mail.setSendMail(sendMail);
-            mail.setReceiveMail("1272220612@qq.com");
-            //授权码
-            mail.setPassword(password);
-            mail.setSubject("每日数据存储成功！");
-            mail.setContent("<div>【每日数据存储成功】<br><div>");
-            SendMail.createSimpleMail(mail);
-            log.info(format.format(new Date()) + "============每日数据存储成功");
+            if ("0".equals(DateUtils.isHoliday(ff.format(new Date())))) {
+                Example example = new Example(EverydayData.class);
+                Example.Criteria criteria = example.createCriteria();
+                criteria.andLike("time", "%" + DateUtil.format(new Date(), "yyyyMMdd") + "%");
+                List<EverydayData> list = everydayDataMapper.selectByExample(example);
+                StockExcel stockExcel = new StockExcel();
+                stockExcel.generatorStockData(list, stockDataDirPath);
+                Mail mail = new Mail();
+                mail.setSendMail(sendMail);
+                mail.setReceiveMail("1272220612@qq.com");
+                //授权码
+                mail.setPassword(password);
+                mail.setSubject("每日数据存储成功！");
+                mail.setContent("<div>【每日数据存储成功】<br><div>");
+                SendMail.createSimpleMail(mail);
+                log.info(format.format(new Date()) + "============每日数据存储成功");
+            }
         } catch (Exception e) {
             log.error(format.format(new Date()) + "============每日数据存储失败");
             e.printStackTrace();

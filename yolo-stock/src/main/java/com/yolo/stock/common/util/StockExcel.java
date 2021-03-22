@@ -22,7 +22,7 @@ import java.util.List;
 public class StockExcel {
     public void generatorStockData(List<EverydayData> everydayDataList,String stockDataDirPath) throws IOException {
         Boolean generate = false;
-        String pathName = new String((stockDataDirPath+File.separator+DateUtil.format(new Date(),"yyyy-MM-dd")+"每日数据.xlsx").getBytes("GBK"));
+        String pathName = new String((stockDataDirPath+File.separator+DateUtil.format(new Date(),"yyyy-MM-dd")+"每日数据.xlsx").getBytes("UTF-8"));
         File file = new File(pathName);
         if (!file.exists()) {
             //两级目录

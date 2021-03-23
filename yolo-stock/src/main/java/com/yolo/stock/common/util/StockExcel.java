@@ -24,7 +24,6 @@ public class StockExcel {
         Boolean generate = false;
         String pathName = new String((stockDataDirPath+File.separator+DateUtil.format(new Date(),"yyyy-MM-dd")+"每日数据.xlsx").getBytes("UTF-8"));
         File file = new File(pathName);
-
         if (!file.exists()) {
             //两级目录
             if (!(file.getParentFile().exists())) {
